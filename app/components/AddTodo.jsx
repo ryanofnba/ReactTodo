@@ -41,7 +41,7 @@ class AddTodo extends Component {
   }
   render() {
     return (
-      <div>
+      <div className="container__footer">
         <form onSubmit={this.handleSubmit}>
           <input
             type="text"
