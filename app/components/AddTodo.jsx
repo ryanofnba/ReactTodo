@@ -1,7 +1,9 @@
 import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
+import { connect } from 'react-redux';
+const actions = require('actions');
 
-class AddTodo extends Component {
+export class AddTodo extends Component {
   constructor(props) {
     super(props);
 
@@ -23,6 +25,8 @@ class AddTodo extends Component {
   handleSubmit(event) {
     event.preventDefault();
 
+    const { dispatch } = this.props;
+
     const todoText = ReactDOM.findDOMNode(this.refs.todoTextInput).value;
 
     if (todoText.length > 0) {
@@ -32,7 +36,7 @@ class AddTodo extends Component {
 
       ReactDOM.findDOMNode(this.refs.todoTextInput).value = '';
 
-      this.props.onAddTodo(todoText);
+      dispatch(actions.addTodo(todoText));
     }
     else {
       ReactDOM.findDOMNode(this.refs.todoTextInput).focus();
@@ -57,4 +61,4 @@ class AddTodo extends Component {
   }
 }
 
-export default AddTodo;
+export default connect()(AddTodo);
