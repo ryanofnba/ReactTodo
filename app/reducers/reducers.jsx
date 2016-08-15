@@ -1,25 +1,25 @@
-import uuid from 'node-uuid';
-import moment from 'moment';
+var uuid = require('node-uuid');
+var moment = require('moment');
 
-export const searchTextReducer = (state = '', action) => {
+export var searchTextReducer = (state = '', action) => {
   switch (action.type) {
     case 'SET_SEARCH_TEXT':
       return action.searchText;
     default:
       return state;
-  }
+  };
 };
 
-export const showCompletedReducer = (state = false, action) => {
+export var showCompletedReducer = (state = false, action) => {
   switch (action.type) {
     case 'TOGGLE_SHOW_COMPLETED':
       return !state;
     default:
-      state;
+      return state;
   }
 };
 
-export const todosReducer = (state = [], action) => {
+export var todosReducer = (state = [], action) => {
   switch (action.type) {
     case 'ADD_TODO':
       return [
@@ -33,9 +33,9 @@ export const todosReducer = (state = [], action) => {
         }
       ];
     case 'TOGGLE_TODO':
-      return state.map(todo => {
+      return state.map((todo) => {
         if (todo.id === action.id) {
-          const nextCompleted = !todo.completed;
+          var nextCompleted = !todo.completed;
 
           return {
             ...todo,
@@ -47,4 +47,4 @@ export const todosReducer = (state = [], action) => {
     default:
       return state;
   }
-}
+};
