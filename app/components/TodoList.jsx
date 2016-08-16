@@ -12,6 +12,7 @@ export class TodoList extends Component {
   render() {
 
     const { todos, showCompleted, searchText } = this.props;
+    console.log(todos);
     const renderTodos = () => {
       if (todos.length === 0) {
         return (
