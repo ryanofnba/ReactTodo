@@ -36,7 +36,7 @@ export class AddTodo extends Component {
 
       ReactDOM.findDOMNode(this.refs.todoTextInput).value = '';
 
-      dispatch(actions.addTodo(todoText));
+      dispatch(actions.startAddTodo(todoText));
     }
     else {
       ReactDOM.findDOMNode(this.refs.todoTextInput).focus();
